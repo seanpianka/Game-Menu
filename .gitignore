@@ -27,3 +27,11 @@
 *.exe
 *.out
 *.app
+bin/*
+
+# Build and lib dirs
+build
+lib/*
+
+# Ignore MacOS specific files
+.DS_Store

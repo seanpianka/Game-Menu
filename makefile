@@ -1,27 +1,43 @@
 # if there is a clock skew detected, run:
 # find /your/dir -type f -exec touch {} +
-TARGET   := minia
-LIBS     := -lm $(shell pkg-config sfml-all --libs)
-SRCEXT   := cpp
-HDREXT   := hpp
 CXX      := g++
-CXXFLAGS := -Wall -Wextra -std=c++11
+CXXSTD   := -std=c++11
+CXXFLAGS := -g -Wall -Wextra
 
-.PHONY: clean all default
+SRCDIR   := src
+BUILDDIR := build
+TARGET   := bin/minia
+
+INCDIR   := include/
+INC 	 := -I$(INCDIR) -Ilib/SFML/include
+
+LIBS     := -Llib/SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system $(INC)
+
+SRCEXT   := cpp
+SOURCES  := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS  := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+
+HDREXT   := hpp
+HEADERS  := $(shell find $(INCDIR) -type f -name *.$(HDREXT))
+
+.PRECIOUS: $(TARGET) $(OBJECTS)
 
 default: $(TARGET)
 all: default
 
-OBJECTS := $(patsubst %.$(SRCEXT), %.o, $(wildcard *.$(SRCEXT)))
-HEADERS := $(wildcard *.$(HDREXT))
-
-%.o: %.$(SRCEXT) $(HEADERS)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-.PRECIOUS: $(TARGET) $(OBJECTS)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -Wall $(LIBS) -o $@
+	@echo "Linking...";
+	$(CXX) $^ -o $(TARGET) $(LIBS);
+
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(BUILDDIR);
+	@echo "Compiling...";
+	$(CXX) $(CXXSTD) $(CXXFLAGS) $(INC) -c -o $@ $<;
 
 clean:
-	-rm -f *.o $(TARGET)
+	@echo " Cleaning...";
+	rm -r $(BUILDDIR) $(TARGET)
+
+.PHONY: clean
