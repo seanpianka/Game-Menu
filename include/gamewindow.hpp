@@ -1,4 +1,5 @@
 #ifndef __MINIA__GAMEWINDOW__HPP__
+#define __MINIA__GAMEWINDOW__HPP__
 
 #include <SFML/Graphics.hpp>
 #include <string>
