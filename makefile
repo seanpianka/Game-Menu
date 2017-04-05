@@ -11,7 +11,7 @@ TARGET   := bin/minia
 INCDIR   := include/
 INC 	 := -I$(INCDIR) -Ilib/SFML/include
 
-LIBS     := -Llib/SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system $(INC)
+LIBS     := -Llib/SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
 
 SRCEXT   := cpp
 SOURCES  := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
