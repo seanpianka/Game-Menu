@@ -8,8 +8,8 @@ namespace minia
 {
     namespace constants
     {
-        const uint32_t WINDOW_HEIGHT = 320;
-        const uint32_t WINDOW_WIDTH  = 480;
+        const uint32_t WINDOW_HEIGHT = 1080;
+        const uint32_t WINDOW_WIDTH  = 1920;
         const std::string GAME_TITLE = "Minia";
         const double& DEFAULT_FRAMERATE = 60;
     };
