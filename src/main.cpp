@@ -9,6 +9,9 @@ void process_events(GameWindow&, std::vector<sf::CircleShape>&);
 int main()
 {
     Minia game;
+    game.start();
+
+    /*
     std::vector<sf::CircleShape> batch_circles;
 
     sf::CircleShape head(100.f);
@@ -20,10 +23,12 @@ int main()
     {
         process_events(window, batch_circles);
     }
+    */
 
     return 0;
 }
 
+/*
 void process_events(GameWindow& window, std::vector<sf::CircleShape>& batch_circles)
 {
     sf::Event event;
@@ -43,3 +48,4 @@ void process_events(GameWindow& window, std::vector<sf::CircleShape>& batch_circ
     }
     window.display();
 }
+*/

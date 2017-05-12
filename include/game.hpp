@@ -23,6 +23,7 @@ private:
 
 public:
     Minia();
+    ~Minia();
     void start(void);
 
 };

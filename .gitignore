@@ -32,6 +32,7 @@ bin/*
 # Build and lib dirs
 build
 lib/*
+SMFL/
 
 # Ignore MacOS specific files
 .DS_Store
