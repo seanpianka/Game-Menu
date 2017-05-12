@@ -5,11 +5,8 @@ const GameWindow::ResolutionSetting GameWindow::w1600h900 = GameWindow::Resoluti
 const GameWindow::ResolutionSetting GameWindow::w1920h1080 = GameWindow::ResolutionSetting(1920, 1080);
 const GameWindow::ResolutionSetting GameWindow::w2560h1440 = GameWindow::ResolutionSetting(2560, 1440);
 
-GameWindow::GameWindow(
-    const uint32_t& width, const uint32_t& height, const std::string& title,
-    const double& framerate
-)
-: sf::RenderWindow(sf::VideoMode(width, height), title)
+GameWindow::GameWindow(const uint32_t& width, const uint32_t& height,
+                       const std::string& title, const double& framerate)
 {
     _width = width;
     _height = height;
@@ -31,3 +28,8 @@ void GameWindow::set_resolution(const ResolutionSetting& option)
 {
     setSize(option.get_resolution());
 }
+
+uint32_t GameWindow::get_height() { return _height; }
+uint32_t GameWindow::get_width() { return _width; }
+std::string GameWindow::get_title() { return _title; }
+double GameWindow::get_framerate() { return _framerate; }
