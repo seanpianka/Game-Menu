@@ -3,18 +3,18 @@
 #include "utils.hpp"
 
 
-MiniaGame::MiniaGame(const GameWindow::ResolutionSetting& res)
+MiniaEngine::MiniaEngine(const GameWindow::ResolutionSetting& res)
 : _window(res, mg::constants::GAME_TITLE)
 {
     _gamestate = GameState::Uninitialized;
 }
 
-MiniaGame::~MiniaGame()
+MiniaEngine::~MiniaEngine()
 {
     _window.close();
 }
 
-void MiniaGame::start(void)
+void MiniaEngine::start(void)
 {
     if (_gamestate != GameState::Uninitialized) { return; }
 
@@ -31,12 +31,12 @@ void MiniaGame::start(void)
     _window.close();
 }
 
-bool MiniaGame::is_exiting()
+bool MiniaEngine::is_exiting()
 {
     return _gamestate == GameState::Exiting;
 }
 
-void MiniaGame::game_loop(void)
+void MiniaEngine::game_loop(void)
 {
     sf::Event current_event;
 
@@ -50,7 +50,7 @@ void MiniaGame::game_loop(void)
 
                 if (current_event.type == sf::Event::Closed)
                 {
-                    _gamestate = MiniaGame::GameState::Exiting;
+                    _gamestate = MiniaEngine::GameState::Exiting;
                 }
                 break;
             default:

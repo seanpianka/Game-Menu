@@ -5,27 +5,28 @@
 
 Character::Character(const Role& role, const std::vector<Item>& inventory)
 : _role(role),
- _equipped(nullptr),
  _inventory(inventory)
+
 {
-    set_role_attributes();
+    init();
 }
 
 Character::Character(const Role& role, std::vector<Item>&& inventory)
 : _role(role),
- _equipped(nullptr),
  _inventory(std::move(inventory))
 {
-    set_role_attributes();
+    init();
 }
 
 Character::~Character() {}
 
-void Character::set_role_attributes()
+void Character::init()
 {
     _strength = _role.get_strength();
     _defense = _role.get_defense();
     _health = _role.get_health();
+    _equipped = nullptr;
+    _attack_player_on_sight = false;
 }
 
 bool Character::is_alive()

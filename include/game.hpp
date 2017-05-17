@@ -3,7 +3,7 @@
 
 #include "gamewindow.hpp"
 
-class MiniaGame
+class MiniaEngine
 {
 private:
     bool is_exiting();
@@ -15,10 +15,12 @@ private:
 
     GameState _gamestate;
     GameWindow _window;
+    sf::Sprite _background_sprite;
+    sf::Texture _background_texture;
 
 public:
-    MiniaGame(const GameWindow::ResolutionSetting&);
-    ~MiniaGame();
+    MiniaEngine(const GameWindow::ResolutionSetting&);
+    ~MiniaEngine();
     void start(void);
 
 };

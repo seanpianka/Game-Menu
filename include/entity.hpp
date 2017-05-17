@@ -10,7 +10,6 @@ protected:
     sf::Sprite _sprite;
     sf::Texture _texture;
     double _x_vel, _y_vel, _z_vel;
-    bool attack_player_on_sight;
 
 public:
     Entity(const int32_t& x_pos = 0,

@@ -32,7 +32,8 @@ bin/*
 # Build and lib dirs
 build
 lib/*
-SMFL/
+.idea/*
+cmake-build-debug/*
 
 # Ignore MacOS specific files
 .DS_Store

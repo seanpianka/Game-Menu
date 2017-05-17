@@ -2,10 +2,11 @@
 #define __MINIA__ITEM__HPP__
 
 #include "unique_id.hpp"
+#include "entity.hpp"
 #include "function.hpp"
 
 
-class Item
+class Item : public Entity
 {
 public:
     Item(const Function&);

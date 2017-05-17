@@ -18,12 +18,13 @@ public:
     std::shared_ptr<Item> get_equipped_item();
 
 private:
-    void set_role_attributes();
+    void init();
 
     const Role& _role;
     double _strength;
     double _defense;
     double _health;
+    bool _attack_player_on_sight;
     std::shared_ptr<Item> _equipped;
     std::vector<Item> _inventory;
 };

@@ -6,7 +6,7 @@
 
 int main()
 {
-    MiniaGame game(GameWindow::w640h480);
+    MiniaEngine game(GameWindow::w640h480);
     game.start();
 
     return 0;
