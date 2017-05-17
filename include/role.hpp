@@ -2,25 +2,20 @@
 #define __MINIA__ROLE__HPP__
 
 #include "unique_id.hpp"
+#include "entity.hpp"
 
 
 class Role : public UniqueId
 {
-protected:
-    Role(const double&, const double&, const double&);
+    friend class Entity;
 
+protected:
     double _strength;
     double _health;
     double _defense;
 
 public:
-    virtual ~Role() = 0;
-    Role(Role const&);
-    void operator=(Role const&);
-
-    double get_strength() const;
-    double get_health() const;
-    double get_defense() const;
+    Role(const double&, const double&, const double&);
 };
 
 #endif

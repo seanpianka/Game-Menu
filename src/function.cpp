@@ -10,7 +10,7 @@ Function::Function(const double& durability,
 
 Function::~Function() {}
 
-FunctionStorage::FunctionStorage(const double& durability,
+StorageFunction::StorageFunction(const double& durability,
                                  const double& weight,
                                  const uint32_t& size,
                                  const double& MAX_ITEMS,
@@ -20,7 +20,7 @@ FunctionStorage::FunctionStorage(const double& durability,
   _MAX_ITEMS(MAX_ITEMS)
 {}
 
-FunctionStorage::FunctionStorage(const double& durability,
+StorageFunction::StorageFunction(const double& durability,
                                  const double& weight,
                                  const uint32_t& size,
                                  const double& MAX_ITEMS,
@@ -30,7 +30,7 @@ FunctionStorage::FunctionStorage(const double& durability,
   _MAX_ITEMS(MAX_ITEMS)
 {}
 
-FunctionApparel::FunctionApparel(const double& durability,
+ApparelFunction::ApparelFunction(const double& durability,
                                  const double& weight,
                                  const uint32_t& size,
                                  const double& strength,
@@ -40,7 +40,7 @@ FunctionApparel::FunctionApparel(const double& durability,
   _defense(defense)
 {}
 
-FunctionWeapon::FunctionWeapon(const double& durability,
+WeaponFunction::WeaponFunction(const double& durability,
                                const double& weight,
                                const uint32_t& size,
                                const double& damage)
@@ -48,16 +48,10 @@ FunctionWeapon::FunctionWeapon(const double& durability,
   _damage(damage)
 {}
 
-FunctionFood::FunctionFood(const double& durability,
+FoodFunction::FoodFunction(const double& durability,
                            const double& weight,
                            const uint32_t& size,
                            const double& restores)
 : Function(durability, weight, size),
   _restores(restores)
-{}
-
-FunctionEmpty::FunctionEmpty(const double& durability,
-                             const double& weight,
-                             const uint32_t& size)
-: Function(durability, weight, size)
 {}

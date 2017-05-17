@@ -1,7 +1,9 @@
 #ifndef __MINIA__GAME__HPP__
 #define __MINIA__GAME__HPP__
 
+#include <vector>
 #include "gamewindow.hpp"
+#include "entity.hpp"
 
 class MiniaEngine
 {
@@ -17,6 +19,7 @@ private:
     GameWindow _window;
     sf::Sprite _background_sprite;
     sf::Texture _background_texture;
+    std::vector<Entity>
 
 public:
     MiniaEngine(const GameWindow::ResolutionSetting&);

@@ -19,4 +19,24 @@ private:
     uint32_t _size;
 };
 
+class StorageItem : public Item
+{
+
+};
+
+class ApparelItem : public Item
+{
+
+};
+
+class WeaponItem : public Item
+{
+
+};
+
+class FoodItem : public Item
+{
+
+};
+
 #endif

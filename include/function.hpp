@@ -10,79 +10,70 @@ class Item;
 class Function : public UniqueId
 {
 protected:
-    Function(const double&, const double&, const uint32_t&);
-
     double _durability;
     double _weight;
     uint32_t _size;
 
 public:
-    virtual ~Function() = 0;
-    Function(const Function&);
-    void operator=(const Function&);
+    Function(const double&, const double&, const uint32_t&);
+    virtual ~Function();
 };
 
-class FunctionStorage : public Function
+class StorageFunction : public Function
 {
 protected:
     std::vector<Item> _inventory;
     const double _MAX_ITEMS;
 
 public:
-    FunctionStorage(const double&,
+    StorageFunction(const double&,
                     const double&,
                     const uint32_t&,
                     const double&,
                     const std::vector<Item>&);
-    FunctionStorage(const double&,
+    StorageFunction(const double&,
                     const double&,
                     const uint32_t&,
                     const double&,
                     std::vector<Item>&&);
 };
 
-class FunctionApparel : public Function
+class ApparelFunction : public Function
 {
 protected:
     const double _strength;
     const double _defense;
 
 public:
-    FunctionApparel(const double&,
+    ApparelFunction(const double&,
                     const double&,
                     const uint32_t&,
                     const double&,
                     const double&);
 };
 
-class FunctionWeapon : public Function
+class WeaponFunction : public Function
 {
 protected:
     const double _damage;
 
 public:
-    FunctionWeapon(const double&,
+    WeaponFunction(const double&,
                    const double&,
                    const uint32_t&,
                    const double&);
 };
 
-class FunctionFood : public Function
+class FoodFunction : public Function
 {
 protected:
     const double _restores;
 
 public:
-    FunctionFood(const double&,
+    FoodFunction(const double&,
                  const double&,
                  const uint32_t&,
                  const double&);
-};
-
-class FunctionEmpty : public Function
-{
-public:
-    FunctionEmpty(const double&, const double&, const uint32_t&);
 };
 
 #endif
