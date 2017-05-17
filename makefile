@@ -1,24 +1,27 @@
 # if there is a clock skew detected, run:
 # find /your/dir -type f -exec touch {} +
-CXX      := g++
-CXXSTD   := -std=c++11
-CXXFLAGS := -g -Wall -Wextra
+CXX       := g++
+CXXSTD    := -std=c++11
+CXXFLAGS  := -g -Wall -Wextra
 
-SRCDIR   := src
-BUILDDIR := build
-TARGET   := bin/minia
+SRCDIR    := src
+BUILDDIR  := build
+TARGET    := bin/minia
 
-INCDIR   := include/
-INC 	 := -I$(INCDIR) -Ilib/SFML/include
+LIB_IDS   := SFML
 
-LIBS     := -Llib/SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
+INCDIR    := include/
+INC 	  := -I$(INCDIR) -Ilib/SFML/include
 
-SRCEXT   := cpp
-SOURCES  := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
-OBJECTS  := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+LIBS_DIRS := -Llib/SFML/lib 
+LIBS      := -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
 
-HDREXT   := hpp
-HEADERS  := $(shell find $(INCDIR) -type f -name *.$(HDREXT))
+SRCEXT    := cpp
+SOURCES   := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS   := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+
+HDREXT    := hpp
+HEADERS   := $(shell find $(INCDIR) -type f -name *.$(HDREXT))
 
 .PRECIOUS: $(TARGET) $(OBJECTS)
 
@@ -28,7 +31,7 @@ all: default
 
 $(TARGET): $(OBJECTS)
 	@echo "Linking...";
-	$(CXX) $^ -o $(TARGET) $(LIBS);
+	$(CXX) $^ -o $(TARGET) $(LIBS_DIRS) $(LIBS);
 
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)

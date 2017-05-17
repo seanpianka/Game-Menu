@@ -8,7 +8,7 @@ void process_events(GameWindow&, std::vector<sf::CircleShape>&);
 
 int main()
 {
-    Minia game;
+    MiniaGame game(GameWindow::w640h480);
     game.start();
 
     /*

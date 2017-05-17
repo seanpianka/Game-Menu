@@ -1,25 +1,25 @@
 #include "game.hpp"
+#include "gamewindow.hpp"
 #include "utils.hpp"
 
 
-Minia::Minia()
-:
-_window(minia::constants::WINDOW_HEIGHT, minia::constants::WINDOW_WIDTH,
-       minia::constants::GAME_TITLE, minia::constants::DEFAULT_FRAMERATE)
+MiniaGame::MiniaGame(const GameWindow::ResolutionSetting& res)
+: _window(res, mg::constants::GAME_TITLE)
 {
     _gamestate = GameState::Uninitialized;
 }
 
-Minia::~Minia()
+MiniaGame::~MiniaGame()
 {
     _window.close();
 }
 
-void Minia::start(void)
+void MiniaGame::start(void)
 {
     if (_gamestate != GameState::Uninitialized) { return; }
 
-    _window.create(sf::VideoMode(_window.get_height(), _window.get_width()),
+    _window.create(sf::VideoMode(_window.get_width(),
+                                 _window.get_height()),
                                  _window.get_title());
     _gamestate = GameState::Playing;
 
@@ -31,12 +31,12 @@ void Minia::start(void)
     _window.close();
 }
 
-bool Minia::is_exiting()
+bool MiniaGame::is_exiting()
 {
     return _gamestate == GameState::Exiting;
 }
 
-void Minia::game_loop(void)
+void MiniaGame::game_loop(void)
 {
     sf::Event current_event;
 
@@ -50,8 +50,10 @@ void Minia::game_loop(void)
 
                 if (current_event.type == sf::Event::Closed)
                 {
-                    _gamestate = Minia::GameState::Exiting;
+                    _gamestate = MiniaGame::GameState::Exiting;
                 }
+                break;
+            default:
                 break;
         }
     }
