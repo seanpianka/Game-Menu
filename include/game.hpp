@@ -3,8 +3,7 @@
 
 #include "gamewindow.hpp"
 
-// game class
-class Minia
+class MiniaGame
 {
 private:
     bool is_exiting();
@@ -16,14 +15,10 @@ private:
 
     GameState _gamestate;
     GameWindow _window;
-    std::string _window_title;
-    uint32_t _window_width;
-    uint32_t _window_height;
-    double _default_framerate;
 
 public:
-    Minia();
-    ~Minia();
+    MiniaGame(const GameWindow::ResolutionSetting&);
+    ~MiniaGame();
     void start(void);
 
 };
