@@ -2,7 +2,7 @@
 # find /your/dir -type f -exec touch {} +
 CXX       := g++
 CXXSTD    := -std=c++11
-CXXFLAGS  := -g -Wall -Wextra
+CXXFLAGS  := -Wall -Wextra
 
 SRCDIR    := src
 BUILDDIR  := build
@@ -14,7 +14,7 @@ INCDIR    := include/
 INC 	  := -I$(INCDIR) -Ilib/SFML/include
 
 LIBS_DIRS := -Llib/SFML/lib 
-LIBS      := -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
+LIBS      := -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network -lsfml-audio
 
 SRCEXT    := cpp
 SOURCES   := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))

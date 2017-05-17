@@ -1,3 +1,4 @@
+#include "SFML/Graphics.hpp"
 #include "gamewindow.hpp"
 
 const GameWindow::ResolutionSetting GameWindow::w640h480 = GameWindow::ResolutionSetting(640, 480);
@@ -8,8 +9,7 @@ const GameWindow::ResolutionSetting GameWindow::w2560h1440 = GameWindow::Resolut
 /*===========================================================================*/
 /* GameWindow */
 /*===========================================================================*/
-GameWindow::GameWindow(const ResolutionSetting& res,
-                       const std::string& title)
+GameWindow::GameWindow(const ResolutionSetting& res, const std::string& title)
 : _res(res)
 {
     _title = title;

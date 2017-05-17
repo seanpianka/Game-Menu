@@ -17,6 +17,10 @@ public:
     virtual ~Role() = 0;
     Role(Role const&);
     void operator=(Role const&);
+
+    double get_strength() const;
+    double get_health() const;
+    double get_defense() const;
 };
 
 #endif

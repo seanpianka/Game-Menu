@@ -18,6 +18,4 @@ public:
     uint32_t get_id() { return _id; }
 };
 
-uint32_t UniqueId::_id_count = 0;
-
 #endif

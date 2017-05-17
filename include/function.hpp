@@ -7,7 +7,7 @@
 
 class Item;
 
-class Function : UniqueId
+class Function : public UniqueId
 {
 protected:
     Function(const double&, const double&, const uint32_t&);

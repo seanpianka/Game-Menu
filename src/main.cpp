@@ -3,8 +3,6 @@
 #include "gamewindow.hpp"
 #include "game.hpp"
 
-void process_events(GameWindow&, std::vector<sf::CircleShape>&);
-
 
 int main()
 {

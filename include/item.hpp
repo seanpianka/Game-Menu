@@ -18,6 +18,4 @@ private:
     uint32_t _size;
 };
 
-const Item empty{FunctionEmpty(1, 0, 0)};
-
 #endif

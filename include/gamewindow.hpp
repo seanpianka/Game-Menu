@@ -3,7 +3,6 @@
 
 #include <string>
 #include <cstdint>
-
 #include <SFML/Graphics.hpp>
 
 
@@ -26,8 +25,7 @@ public:
         uint32_t _framerate;
     };
 
-    GameWindow(const ResolutionSetting&,
-               const std::string&);
+    GameWindow(const ResolutionSetting&, const std::string&);
 
     void toggle_fullscreen();
     void set_resolution(const ResolutionSetting&);

@@ -8,6 +8,8 @@ Function::Function(const double& durability,
 : _durability(durability), _weight(weight), _size(size)
 {}
 
+Function::~Function() {}
+
 FunctionStorage::FunctionStorage(const double& durability,
                                  const double& weight,
                                  const uint32_t& size,
